@@ -8,10 +8,10 @@
 # send 5 count of apache metrics to telegraf server running in host 127.0.0.1:8092 for 10 times with 60 seconds interval
 # apache 5 127.0.0.1:8092 10 60
 
-apache 5 127.0.0.1:8092 5 60
-iis_server 5 127.0.0.1:8093 5 60
-oracle 5 127.0.0.1:8094 5 60
-tomcat 5 127.0.0.1:8095 5 60
-sql_server 5 127.0.0.1:8096 5 60
+apache 5 127.0.0.1:8092 10 60
+iis_server 5 127.0.0.1:8093 10 60
+oracle 5 127.0.0.1:8094 10 60
+tomcat 5 127.0.0.1:8095 10 60
+sql_server 5 127.0.0.1:8096 0 60
 
 
