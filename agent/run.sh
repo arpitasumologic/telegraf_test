@@ -24,7 +24,8 @@ while IFS= read -r line; do
   if [[ "$line" =~ ^[[:digit:]] ]]; then
     tokens=( $line )
     PORT="${tokens[0]}"
-    URL="${tokens[1]}"
+    EXPORT_FORMAT="${tokens[1]}"
+    URL="${tokens[2]}"
     ID=$(\
       docker container ls --format="{{.ID}}\t{{.Ports}}" |\
       grep "0.0.0.0:${PORT}" |\
@@ -34,10 +35,10 @@ while IFS= read -r line; do
         docker container stop ${ID} && docker container rm -f ${ID}
       fi
     echo "Running docker on port: ${PORT}"
-    docker run  -d -e URL="${URL}" -v $(pwd)/telegraf.conf:/etc/telegraf/telegraf.conf:ro \
+    docker run  -d -e URL="${URL}" -e EXPORT_FORMAT="${EXPORT_FORMAT}" \
+     -v $(pwd)/telegraf.conf:/etc/telegraf/telegraf.conf:ro \
     --add-host=host.docker.internal:host-gateway -p ${PORT}:8092/udp telegraf \
     --config /etc/telegraf/telegraf.conf
   fi
-
 done < "${CONFIG_FILE}"
 docker container ls --no-trunc  | grep telegraf
