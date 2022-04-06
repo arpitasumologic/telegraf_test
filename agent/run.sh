@@ -24,7 +24,8 @@ while IFS= read -r line; do
   if [[ "$line" =~ ^[[:digit:]] ]]; then
     tokens=( $line )
     PORT="${tokens[0]}"
-    URL="${tokens[1]}"
+    EXPORT_FORMAT="${tokens[1]}"
+    URL="${tokens[2]}"
     ID=$(\
       docker container ls --format="{{.ID}}\t{{.Ports}}" |\
       grep "0.0.0.0:${PORT}" |\
