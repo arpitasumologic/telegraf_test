@@ -35,8 +35,7 @@ while IFS= read -r line; do
         docker container stop ${ID} && docker container rm -f ${ID}
       fi
     echo "Running docker on port: ${PORT}"
-    docker run  -d -e URL="${URL}" -e EXPORT_FORMAT="${EXPORT_FORMAT}" \
-     -v $(pwd)/telegraf.conf:/etc/telegraf/telegraf.conf:ro \
+    docker run  -d -e URL="${URL}" -e EXPORT_FORMAT="${EXPORT_FORMAT}" -v $(pwd)/telegraf.conf:/etc/telegraf/telegraf.conf:ro \
     --add-host=host.docker.internal:host-gateway -p ${PORT}:8092/udp telegraf \
     --config /etc/telegraf/telegraf.conf
   fi
