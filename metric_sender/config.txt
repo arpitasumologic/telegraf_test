@@ -9,7 +9,7 @@
 # send 5 count of apache cpu metrics to telegraf server running in host 127.0.0.1:8092 for 10 times with 60 seconds interval
 # apache cpu 5 127.0.0.1:8092 10 60
 
-apache cpu 5 cpu 127.0.0.1:8092 10 60
+apache cpu 5 127.0.0.1:8092 10 60
 iis_server cpu 5 127.0.0.1:8093 10 60
 oracle cpu 5 127.0.0.1:8094 10 60
 tomcat cpu 5 127.0.0.1:8095 10 60
