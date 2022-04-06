@@ -1,13 +1,14 @@
 # input format
 
-# <listener-port> <sumo-http-url>
+# <listener-port> <export-format> <sumo-http-url>
+# <export-format> can be one of these [carbon2, graphite, prometheus]
 # Example:
 # 8092 https://events.sumologic.net/receiver/v1/http/<UniqueHTTPCollectorCode>
 
-8092 https://events.sumologic.net/receiver/v1/http/<UniqueHTTPCollectorCode>
-8093 https://events.sumologic.net/receiver/v1/http/<UniqueHTTPCollectorCode>
-8094 https://events.sumologic.net/receiver/v1/http/<UniqueHTTPCollectorCode>
-8095 https://events.sumologic.net/receiver/v1/http/<UniqueHTTPCollectorCode>
-8096 https://events.sumologic.net/receiver/v1/http/<UniqueHTTPCollectorCode>
+8092 carbon2 https://events.sumologic.net/receiver/v1/http/<UniqueHTTPCollectorCode>
+8093 graphite https://events.sumologic.net/receiver/v1/http/<UniqueHTTPCollectorCode>
+8094 graphite https://events.sumologic.net/receiver/v1/http/<UniqueHTTPCollectorCode>
+8095 prometheus https://events.sumologic.net/receiver/v1/http/<UniqueHTTPCollectorCode>
+8096 prometheus https://events.sumologic.net/receiver/v1/http/<UniqueHTTPCollectorCode>
 
 

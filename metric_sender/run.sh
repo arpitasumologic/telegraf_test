@@ -27,15 +27,16 @@ while IFS= read -r line; do
   if  [[ "${line}" =~ [^a-zA-Z] ]]; then
     echo "${line}"
     tokens=( $line )
-    # <metric-type> <metric-count> <telegraph-host:port> <total-iteration-count> <sleep-between-iteration-in-seconds>
-    TYPE="${tokens[0]}"
-    METRICS_COUNT="${tokens[1]}"
-    HOST="${tokens[2]}"
-    ITER_COUNT="${tokens[3]}"
-    SLEEP_DURATION="${tokens[4]}"
+    # <metric-name> <metric-type[cpu|disk|memory]> <metric-count> <telegraph-host:port> <total-iteration-count> <sleep-between-iteration-in-seconds>
+    NAME="${tokens[0]}"
+    TYPE="${tokens[1]}"
+    METRICS_COUNT="${tokens[2]}"
+    HOST="${tokens[3]}"
+    ITER_COUNT="${tokens[4]}"
+    SLEEP_DURATION="${tokens[5]}"
 
-    docker run -d --rm -it --net=host metric_sender -t "${TYPE}" -c ${METRICS_COUNT} -s ${SLEEP_DURATION} -i ${ITER_COUNT} \
-          -a "${HOST}"
+    docker run -d --rm -it --net=host metric_sender -n "${NAME}" -t "${TYPE}" -c ${METRICS_COUNT} -s ${SLEEP_DURATION} \
+          -i ${ITER_COUNT} -a "${HOST}"
   fi
 done < "${CONFIG_FILE}"
 docker container ls --no-trunc  | grep metric_sender

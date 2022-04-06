@@ -8,11 +8,11 @@ class TelegraphSender(object):
     def __init__(self, host='127.0.0.1', port=8092):
         self.ciient = TelegrafClient(host=host, port=port)
         self.loopup_dict = {
-            'apache': 'send_apache_cpu_metrics',
-            'iis_server': 'send_iis_server_cpu_metrics',
-            'tomcat': 'send_tomcat_cpu_metrics',
-            'sql_server': 'send_sql_server_cpu_metrics',
-            'oracle': 'send_oracle_perf_metrics'
+            'apache_cpu': 'send_apache_cpu_metrics',
+            'iis_server_cpu': 'send_iis_server_cpu_metrics',
+            'tomcat_cpu': 'send_tomcat_cpu_metrics',
+            'sql_server_cpu': 'send_sql_server_cpu_metrics',
+            'oracle_cpu': 'send_oracle_perf_metrics'
         }
 
     def send_apache_cpu_metrics(self, count=200):
@@ -50,7 +50,7 @@ class TelegraphSender(object):
                                    'request_count': random.randint(0, 2)
                                },
                                tags={
-                                   'host': 'N8-MBP',
+                                   'host': 'N8-MBP-{i}',
                                    "name": f"ajp-bio-8009-{i}"
                                }
                                )
@@ -129,12 +129,14 @@ class TelegraphSender(object):
 if __name__ == "__main__":
     # Parse command line arguments
     parser = ArgumentParser(formatter_class=ArgumentDefaultsHelpFormatter)
-    parser.add_argument("-t", "--type", default="apache",
+    parser.add_argument("-t", "--type", default="cpu",
+                        help="type of the metric [cpu]")
+    parser.add_argument("-n", "--name", default="apache",
                         help="type of the metric [apache | iisserver | oracle | tomcat | sqlserver]")
     parser.add_argument("-c", "--count", default=100, type=int, help="metric count to send")
-    parser.add_argument("-s", "--sleep", default=60, type=int,
-                        help="sleep suration betwwen seding metric in seconds (like 60 (1 min) or 300 (5 mins)")
-    parser.add_argument("-i", "--iteration", default=10, type=int,
+    parser.add_argument("-s", "--sleep", default=10, type=int,
+                        help="sleep suration betwwen seding metric in seconds (like 10 or 60  (1 min) or 300 (5 mins)")
+    parser.add_argument("-i", "--iteration", default=60, type=int,
                         help="Nunmber of times metric to be sent")
     parser.add_argument("-a", "--host_port", default='127.0.0.1:8092', help='host_ip:port')
     args = vars(parser.parse_args())
@@ -142,18 +144,18 @@ if __name__ == "__main__":
     print(f"host={host} port={port}")
     if args['iteration'] <= 0: args['iteration'] = 1
     if args['count'] <= 0: args['count'] = 1
-    if args['sleep'] < 60:
-        print (f"Setting to default sleep duration 60 seconds betwwen sendfing the metrics")
-        args['iteration'] = 60
+    if args['sleep'] < 10:
+        print (f"Setting to default sleep duration 10 seconds betwwen sendfing the metrics")
+        args['iteration'] = 10
 
     tsender = TelegraphSender(host=host, port=int(port))
-    if args['type'].lower() in tsender.loopup_dict.keys():
+    if f"{args['name'].lower()}_{args['type'].lower()}" in tsender.loopup_dict.keys():
         time.sleep(random.uniform(1.0, 5.0))
         for i in range(args['iteration']):
-            print(f"Iteration={i+1}: sending {args['type']} metrics....")
+            print(f"Iteration={i+1}: sending {args['name']} {args['type']} metrics....")
             tsender.call_function(args['type'].lower(), args['count'])
             print(f"sleeping for {args['sleep']} seconds..")
             time.sleep(args['sleep'])
     else:
-        print(f"Unable to find metric generetor {args['type']}")
+        print(f"Unable to find metric generetor {args['name']}")
 
