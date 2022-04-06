@@ -3,7 +3,7 @@
 # <metric-name> <metric-type> <metric-count> <telegraph-host:port> <total-iteration-count> <sleep-between-iteration-in-seconds>
 # <metric-name> can be one of [apache | iis_server | oracle | tomcat | sql_server]
 # <metric-type> can be one of [cpu | disk | memory ] - currently only 'cpu' supported
-# Minimun sleep-between-iteration is set to 60 seconds
+# Minimun sleep-between-iteration is set to 10 seconds
 #
 # Example:
 # send 5 count of apache cpu metrics to telegraf server running in host 127.0.0.1:8092 for 10 times with 60 seconds interval
