@@ -153,7 +153,7 @@ if __name__ == "__main__":
         time.sleep(random.uniform(1.0, 5.0))
         for i in range(args['iteration']):
             print(f"Iteration={i+1}: sending {args['name']} {args['type']} metrics....")
-            tsender.call_function(args['type'].lower(), args['count'])
+            tsender.call_function(f"{args['name'].lower()}_{args['type'].lower()}", args['count'])
             print(f"sleeping for {args['sleep']} seconds..")
             time.sleep(args['sleep'])
     else:
