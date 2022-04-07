@@ -1,6 +1,6 @@
 # telegraf_test
 
-Docker need to be installed and in running to execute the utiliy. 
+Docker need to be installed and in running state to execute the utiliy. 
 For installtion and configuration of the docker please refer [link](https://docs.docker.com/get-docker/)
 
 Agent
