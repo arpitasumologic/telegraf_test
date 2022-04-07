@@ -6,7 +6,7 @@ Agent
 ```
 cd agent
 chmod +x run.sh
-./run.sh -c <agent-config-file-psth>
+./run.sh -c <agent-config-file-path>
 ```
 
 Metric Sender
@@ -15,7 +15,7 @@ Metric Sender
 ```
 cd metric_sender
 chmod +x run.sh
-./run.sh -c <metric-sender-config-file-psth>
+./run.sh -c <metric-sender-config-file-path>
 ```
 Reference(s)
 -------------
