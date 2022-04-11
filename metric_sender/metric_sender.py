@@ -328,7 +328,7 @@ class TelegraphSender(object):
                                    'resource_wait_ms':random.uniform(0.01, 0.02),
                                    'signal_wait_time_ms': random.uniform(0.01, 0.02),
                                    'wait_time_ms': random.uniform(0.01, 0.02),
-                                   'waiting_tasks_count':random.randint(0.5)
+                                   'waiting_tasks_count':random.randint(0, 5)
 
                                },
                                tags=merge(common_tags, {'wait_category': random.choice(['CPU', 'MEMORY', 'OTHER'])})
@@ -371,7 +371,7 @@ class TelegraphSender(object):
                                )
             self.ciient.metric('sqlserver_server_properties',
                                {
-                                   'db_online': random.randint(0,5),
+                                   'db_online': random.randint(0, 5),
                                    'db_restoring': random.randint(0, 5),
                                    'db_recovering': random.randint(0, 5),
                                    'db_recoveryPending': random.randint(0, 5),
