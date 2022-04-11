@@ -61,7 +61,7 @@ class TelegraphSender(object):
                                    "component": "webserver",
                                    "webserver_system": "apache",
                                    "webserver_farm": f"my-test-firm-{random.randint(0, 1)}",
-                                   "_sourceCategory": "Labs/apache"
+                                   "source_category": "Labs/apache"
 
                                }
                                )
@@ -85,7 +85,7 @@ class TelegraphSender(object):
                                    "component": "webserver",
                                    "webserver_system": "tomcat",
                                    "webserver_farm": f"my-test-firm-{random.randint(0, 1)}",
-                                   "_sourceCategory": "Labs/tomcat"
+                                   "source_category": "Labs/tomcat"
 
                                }
                                )
@@ -102,7 +102,7 @@ class TelegraphSender(object):
                                    "component": "webserver",
                                    "webserver_system": "tomcat",
                                    "webserver_farm": f"my-test-firm-{random.randint(0, 1)}",
-                                   "_sourceCategory": "Labs/tomcat"
+                                   "source_category": "Labs/tomcat"
 
                                }
                                )
@@ -125,7 +125,7 @@ class TelegraphSender(object):
                                    "component": "webserver",
                                    "webserver_system": "tomcat",
                                    "webserver_farm": f"my-test-firm-{random.randint(0, 1)}",
-                                   "_sourceCategory": "Labs/tomcat"
+                                   "source_category": "Labs/tomcat"
 
                                }
                                )
@@ -143,7 +143,7 @@ class TelegraphSender(object):
                                    "component": "webserver",
                                    "webserver_system": "tomcat",
                                    "webserver_farm": f"my-test-firm-{random.randint(0, 1)}",
-                                   "_sourceCategory": "Labs/tomcat"
+                                   "source_category": "Labs/tomcat"
 
                                }
                                )
@@ -161,7 +161,7 @@ class TelegraphSender(object):
                                    "component": "webserver",
                                    "webserver_system": "tomcat",
                                    "webserver_farm": f"my-test-firm-{random.randint(0, 1)}",
-                                   "_sourceCategory": "Labs/tomcat"
+                                   "source_category": "Labs/tomcat"
 
                                }
                                )
@@ -185,7 +185,7 @@ class TelegraphSender(object):
                                    "component": "webserver",
                                    "webserver_system": "tomcat",
                                    "webserver_farm": f"my-test-firm-{random.randint(0, 1)}",
-                                   "_sourceCategory": "Labs/tomcat"
+                                   "source_category": "Labs/tomcat"
 
                                }
                                )
@@ -206,7 +206,7 @@ class TelegraphSender(object):
                                    "component": "webserver",
                                    "webserver_system": "tomcat",
                                    "webserver_farm": f"my-test-firm-{random.randint(0, 1)}",
-                                   "_sourceCategory": "Labs/tomcat"
+                                   "source_category": "Labs/tomcat"
 
                                }
                                )
@@ -224,7 +224,7 @@ class TelegraphSender(object):
                                    "component": "webserver",
                                    "webserver_system": "tomcat",
                                    "webserver_farm": f"my-test-firm-{random.randint(0, 1)}",
-                                   "_sourceCategory": "Labs/tomcat"
+                                   "source_category": "Labs/tomcat"
 
                                }
                                )
@@ -244,7 +244,7 @@ class TelegraphSender(object):
                                        "component": "webserver",
                                        "webserver_system": "tomcat",
                                        "webserver_farm": f"my-test-firm-{random.randint(0, 1)}",
-                                       "_sourceCategory": "Labs/tomcat"
+                                       "source_category": "Labs/tomcat"
 
                                    }
                                    )
@@ -263,7 +263,7 @@ class TelegraphSender(object):
                                    "component": "webserver",
                                    "webserver_system": "tomcat",
                                    "webserver_farm": f"my-test-firm-{random.randint(0, 1)}",
-                                   "_sourceCategory": "Labs/tomcat"
+                                   "source_category": "Labs/tomcat"
 
                                }
                                )
@@ -288,7 +288,7 @@ class TelegraphSender(object):
                                    "component": "webserver",
                                    "webserver_system": "iis",
                                    "webserver_farm": f"my-test-firm-{random.randint(0, 1)}",
-                                   "_sourceCategory": "Labs/iis"
+                                   "source_category": "Labs/iis"
                                }
                                )
 
@@ -305,7 +305,7 @@ class TelegraphSender(object):
                 "database_system": "sqlserver",
                 "database_farm": f"my-sqlserver-firm-{random.randint(0, 1)}",
                 "cluster": f"my-sql-cluster-{random.randint(0, 1)}",
-                "_sourceCategory": "Labs/sqlserver"
+                "source_category": "Labs/sqlserver"
 
             }
             self.ciient.metric('sqlserver_performance',
@@ -405,7 +405,7 @@ class TelegraphSender(object):
                 "database_system": "oracle",
                 "database_farm": f"my-oracle-firm-{random.randint(0, 1)}",
                 "cluster": f"my-oracle-cluster-{random.randint(0, 1)}",
-                "_sourceCategory": "Labs/oracle"
+                "source_category": "Labs/oracle"
 
             }
             self.ciient.metric('oracle_connectioncount',
