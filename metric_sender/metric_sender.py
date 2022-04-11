@@ -281,7 +281,7 @@ class TelegraphSender(object):
 
                                },
                                tags={
-                                   'ObjectName': random.choice["Processor"],
+                                   'ObjectName': "Processor",
                                    "host": f"IIS+CPU-{i}",
                                    "Instances": f"IIS+CPU-{i}",
                                    "environment": "prod",
