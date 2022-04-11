@@ -3,6 +3,8 @@ import time
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 from telegraf.client import TelegrafClient
 
+def merge(dict1, dict2):
+    return {**dict1, **dict2}
 
 class TelegraphSender(object):
     def __init__(self, host='127.0.0.1', port=8092):
