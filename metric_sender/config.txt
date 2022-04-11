@@ -13,6 +13,7 @@ apache cpu 5 127.0.0.1:8092 10 60
 iis_server cpu 5 127.0.0.1:8093 10 60
 oracle cpu 5 127.0.0.1:8094 10 60
 tomcat cpu 5 127.0.0.1:8095 10 60
+tomcat memory 5 127.0.0.1:8095 10 60
 sql_server cpu 5 127.0.0.1:8096 0 60
 
 
