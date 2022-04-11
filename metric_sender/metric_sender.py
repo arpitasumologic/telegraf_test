@@ -352,7 +352,7 @@ class TelegraphSender(object):
                                    'writes': random.randint(24000, 25000)
 
                                },
-                               tags=mergee (common_tags,
+                               tags=merge (common_tags,
                                 {'request_id': random.randint(30000, 40000),
                                  'session_id': random.randint(1555,1600),
                                  'blocking_session_id':random.randint(1555,1600)})
