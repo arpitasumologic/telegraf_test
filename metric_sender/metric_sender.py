@@ -39,7 +39,7 @@ class TelegraphSender(object):
                                    'ReqPerSec': random.uniform(0.1, 30.0),
                                    'ServerUptimeSeconds': random.randint(1, 600000),
                                    'TotalAccesses': random.randint(3000, 8000),
-                                   'TotalDuration': random.uniform(60.0 - 70.0),
+                                   'TotalDuration': random.uniform(60.0, 70.0),
                                    'TotalkBytes': random.randint(800000, 900000),
                                    'Uptime': random.randint(600000, 700000),
                                    'scboard_closing': random.uniform(600000.0, 700000.0),
