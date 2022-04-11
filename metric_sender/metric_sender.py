@@ -214,7 +214,7 @@ class TelegraphSender(object):
             self.ciient.metric('tomcat_jvm_memory',
                                {
                                    'free': random.randint(50, 10000),
-                                   'total': random.choice(32000, 64000),
+                                   'total': random.choice([32000, 64000]),
                                    'max': random.randint(10000, 30000),
                                },
                                tags={
@@ -258,7 +258,7 @@ class TelegraphSender(object):
                                tags={
                                    'host': f"N8-MBP-{i}",
                                    "name": f"ajp-bio-8009-{i}",
-                                   "type": random.choice['Heap', 'Non-Heap'],
+                                   "type": random.choice(['Heap', 'Non-Heap']),
                                    "environment": "prod",
                                    "component": "webserver",
                                    "webserver_system": "tomcat",
@@ -389,11 +389,11 @@ class TelegraphSender(object):
         wait_event_dict = {
             'Network': 'SQL*Net_message_to_client',
             'Other': 'asynch_descriptor_resize',
-            'System_I/O': random.choice[
+            'System_I/O': random.choice([
                 'log_file_parallel_write',
                 'control_file_sequential_read',
                 'control_file_parallel_write'
-            ]
+            ])
         }
 
         for i in range(count):
